@@ -12,9 +12,19 @@ body {
   width: 100%;
   height: 100vh;
   display: flex;
+  flex-direction: column;
+  gap: 20px;
   align-items: center;
   justify-content: center;
   background-color: hsl(185, 41%, 84%);
+}
+
+.logo {
+  width: 800px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 100px;
 }
 
 input[type=number]::-webkit-inner-spin-button,
@@ -26,4 +36,28 @@ input[type=number]::-webkit-outer-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
   appearance: textfield;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    align-items: center;
+    justify-content: end;
+  }
+
+  .logo {
+    width: 100%;
+    margin-bottom: 12px;
+  }
+}
+
+@media screen and (max-height: 500px) {
+  .logo {
+    display: none;
+  }
+}
+
+@media screen and (min-height: 500px) {
+  .logo img {
+    height: 30px;
+  }
 }

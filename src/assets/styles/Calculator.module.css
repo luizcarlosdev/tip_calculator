@@ -15,7 +15,7 @@
     grid-template-columns: 1fr 1fr;
     gap: 25px;
     background-color: hsl(0, 0%, 100%);
-    border-radius: 10px;
+    border-radius: 20px;
     box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.150);
 }
 
@@ -92,6 +92,9 @@
 }
 
 .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 120px;
     height: 50px;
     background-color: hsl(183, 100%, 15%);
@@ -249,4 +252,94 @@
     color: hsl(183, 100%, 15%);
     background-color: hsl(172, 67%, 45%);
     cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        width: 350px;
+        grid-template-columns: 1fr;
+        place-items: center;
+        gap: 15px;
+        padding: 25px 10px;
+    }
+
+    .set_values_calc {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .set_values_calc_header {
+        width: 90%;
+        gap: 10px;
+    }
+
+    .input {
+        width: 90%;
+        height: 30px;
+    }
+
+    .set_values_btn_group {
+        width: 80%;
+    }
+
+
+    .buttons {
+        width: 100%;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        place-items: left;
+    }
+
+    .button {
+        width: 100px;
+        height: 35px;
+        font-size: 1.3rem;
+    }
+
+    .custom {
+        width: 100px;
+        height: 35px;
+    }
+
+    .custom::placeholder {
+        font-size: 1.3rem;
+    }
+
+    .number_people {
+        width: 90%;
+    }
+
+    .number_people_header  span {
+        font-size: 0.75rem;
+    }
+
+    .calculated_display {
+        gap: 45px;
+    } 
+
+    .values_calculated {
+        width: 80%;
+        padding: 15px 35px;
+    }
+
+    .tip_amount_value {
+        font-size: 2rem;
+    }
+
+    .total_value {
+        font-size: 2rem;
+    }
+
+    .calculate {
+        width: 100%;
+    }
+
+    .calculate button {
+        margin-top: 20px;
+        font-size: 1rem;
+        height: 30px;
+    }
 }
