@@ -7,26 +7,32 @@ import user_icon from '../images/icon-person.svg';
 
 export default function Calculator() {
     let a = 0;
+    let b = 0;
     const [bill, setBill] = useState<number>(0);
     const [percentage, setPercentage] = useState<number>(0);
     const [tip_amount, setTipAmount] = useState<number>(a);
     const [numberPeople, SetNumberPeople] = useState<number>(0);
     const [erro, setErro] = useState<boolean>(false);
+    const [payPerPerson, setPayPerPerson] = useState<number>(b);
 
 
     function calculatePercentageOfValue(): void {
 
-        if (bill != 0 && percentage != 0 && numberPeople != 0 || numberPeople != null) {
+        if (bill != 0 && percentage != 0 && numberPeople > 0 || numberPeople != undefined) {
             a = bill * percentage / 100;
             console.log("Valor de a: " + a);
+        } else {
+            setErro(true)
         }
     }
 
     function valuePerPerson() {
         if (numberPeople === 0 || numberPeople === null) {
-            setErro(true)
+            setErro(true);
         } else {
             setErro(false);
+            b = a / numberPeople;
+            console.log("b: "+b)
         }
     }
 
@@ -69,7 +75,7 @@ export default function Calculator() {
                             <h4>Tip Amount</h4>
                             <span>/ person</span>
                         </div>
-                        <div className={Styles.tip_amount_value}>$0.00</div>
+                        <div className={Styles.tip_amount_value}>${(b != 0 ? 0 : payPerPerson).toFixed(2)}</div>
                     </div>
                     <div className={Styles.total}>
                         <div className={Styles.total_title}>
@@ -85,6 +91,7 @@ export default function Calculator() {
                         setTipAmount(a);
                         console.log(tip_amount);
                         valuePerPerson()
+                        setPayPerPerson(b);
                     }}>reset</button>
                 </div>
             </div>
