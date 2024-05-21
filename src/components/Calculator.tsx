@@ -75,14 +75,14 @@ export default function Calculator() {
                             <h4>Tip Amount</h4>
                             <span>/ person</span>
                         </div>
-                        <div className={Styles.tip_amount_value}>${(b != 0 ? 0 : payPerPerson).toFixed(2)}</div>
+                        <div className={Styles.tip_amount_value}>${(b === 0 || b === null ? payPerPerson : 0).toFixed(2)}</div>
                     </div>
                     <div className={Styles.total}>
                         <div className={Styles.total_title}>
                             <h4>total</h4>
                             <span>/ person</span>
                         </div>
-                        <div className={Styles.total_value}>${tip_amount.toFixed(2)}</div>
+                        <div className={Styles.total_value}>${(b === 0 || b === null ? tip_amount : 0).toFixed(2)}</div>
                     </div>
                 </div>
                 <div className={Styles.calculate}>
